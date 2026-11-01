@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/global_margin"
+        android:paddingTop="@dimen/global_margin">
+
+        <include
+            android:id="@+id/editor_base"
+            layout="@layout/dialog_editor_base"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <include
+            android:id="@+id/editor_input_config"
+            layout="@layout/dialog_editor_input_config"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/editor_background_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin"
+            android:text="@string/grid_layout_edit_background"
+            app:layout_constraintTop_toBottomOf="@id/editor_moves_cursor"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/editor_background_label_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/grid_layout_edit_background_label_color"
+            app:layout_constraintBottom_toTopOf="@+id/editor_background_color_button"
+            app:layout_constraintEnd_toEndOf="@+id/editor_background_color_button"
+            app:layout_constraintStart_toStartOf="@+id/editor_background_color_button" />
+
+        <Button
+            android:id="@+id/editor_background_color_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/select_empty_material"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editor_background_label" />
+
+        <CheckBox
+            android:id="@+id/editor_joystick_auto_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:checked="true"
+            android:text="@string/joystick_auto_center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editor_background_color_button" />
+
+        <CheckBox
+            android:id="@+id/editor_joystick_show_in_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grid_layout_show_in_game"
+            android:checked="true"
+            android:layout_marginTop="@dimen/global_margin"
+            app:layout_constraintTop_toBottomOf="@id/editor_joystick_auto_center"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/editor_joystick_show_in_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grid_layout_show_in_menu"
+            android:checked="true"
+            android:layout_marginTop="@dimen/global_margin"
+            app:layout_constraintTop_toBottomOf="@id/editor_joystick_show_in_game"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

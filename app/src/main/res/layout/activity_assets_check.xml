@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/global_margin"
+    android:layout_marginEnd="@dimen/global_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/assets_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/require_game_copy"
+        android:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="@dimen/global_margin"/>
+    <ProgressBar
+        android:id="@+id/extraction_progress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/global_margin_half"
+        android:max="1000"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginBottom="@dimen/global_margin"/>
+    <Button
+        android:id="@+id/select_game_data_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

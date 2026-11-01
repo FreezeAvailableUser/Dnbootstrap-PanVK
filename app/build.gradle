@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application' version '8.11.2'
+}
+
+android {
+    namespace 'git.artdeell.dnbootstrap'
+
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId "git.artdeell.dnbootstrap"
+        minSdk 21
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++17'
+                cFlags '-std=gnu11'
+                arguments '-DANDROID_STL=none', '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON'
+            }
+        }
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true            // extract .so to nativeLibraryDir (dlopen by absolute path)
+            // keep the driver byte-identical (no strip): PanVK is dlopen()ed by path, not linked
+            keepDebugSymbols += ['**/libvulkan_panfrost.so', '**/libvulkan_wrapper.so']
+            // the patched ANGLE in jniLibs must win over the copy inside libs/angle.aar
+            pickFirsts += ['**/libGLESv2_angle.so', '**/libEGL_angle.so']
+        }
+    }
+
+    androidResources {
+        noCompress += "gz"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+    buildFeatures {
+        prefab true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.annotation:annotation:1.9.1'
+    implementation 'org.apache.commons:commons-compress:1.28.0'
+    implementation 'com.google.code.gson:gson:2.13.2'
+
+    implementation 'com.github.MojoLauncher:alsoft-android-aar:f369161d5f'
+    implementation 'com.github.MojoLauncher:LTW:abd4672c6a'
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+}

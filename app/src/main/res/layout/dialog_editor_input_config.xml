@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBox
+        android:id="@+id/editor_sticky"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_margin"
+        android:text="@string/grid_layout_edit_sticky"
+        app:layout_constraintTop_toBottomOf="@id/editor_vert_pos_text"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <CheckBox
+        android:id="@+id/editor_moves_cursor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_margin"
+        android:text="@string/grid_layout_edit_moves_cursor"
+        app:layout_constraintTop_toBottomOf="@id/editor_sticky"
+        app:layout_constraintStart_toStartOf="parent"/>
+</merge>

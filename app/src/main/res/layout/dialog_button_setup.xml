@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/global_margin"
+        android:paddingHorizontal="@dimen/global_margin">
+
+        <include layout="@layout/dialog_editor_base"/>
+
+        <include layout="@layout/dialog_editor_input_config"/>
+
+        <TextView
+            android:id="@+id/editor_label_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin"
+            android:text="@string/grid_layout_edit_button_label"
+            app:layout_constraintTop_toBottomOf="@id/editor_moves_cursor"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editor_label_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/editor_label_label"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/editor_keycode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin"
+            android:text="@string/grid_layout_edit_key_code"
+            app:layout_constraintTop_toBottomOf="@id/editor_label_text"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/editor_keycode_select_1"
+            android:focusable="false"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:layout_marginEnd="@dimen/global_margin_half"
+            style="?android:attr/editTextStyle"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@id/editor_keycode_label"
+            app:layout_constraintEnd_toStartOf="@id/editor_center_guideline"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/editor_keycode_select_2"
+            android:focusable="false"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:layout_marginStart="@dimen/global_margin_half"
+            android:maxLines="1"
+            style="?android:attr/editTextStyle"
+            app:layout_constraintTop_toTopOf="@id/editor_keycode_select_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editor_center_guideline"/>
+
+        <View
+            android:id="@+id/editor_keycode_select_anchor"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/editor_keycode_select_1"
+            app:layout_constraintTop_toTopOf="@id/editor_keycode_select_1"
+            tools:layout_editor_absoluteX="6dp" />
+
+        <TextView
+            android:id="@+id/editor_background_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin"
+            android:text="@string/grid_layout_edit_background"
+            app:layout_constraintTop_toBottomOf="@id/editor_keycode_select_2"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/editor_background_label_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/grid_layout_edit_background_label_color"
+            app:layout_constraintBottom_toTopOf="@+id/editor_background_color_button"
+            app:layout_constraintEnd_toEndOf="@+id/editor_background_color_button"
+            app:layout_constraintStart_toStartOf="@+id/editor_background_color_button" />
+
+        <Button
+            android:id="@+id/editor_background_color_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/select_empty_material"
+            android:outlineProvider="paddedBounds"
+            app:layout_constraintEnd_toStartOf="@id/editor_background_asset_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editor_background_label" />
+
+        <TextView
+            android:id="@+id/editor_background_label_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/grid_layout_edit_background_label_icon"
+            app:layout_constraintBottom_toTopOf="@+id/editor_background_asset_selector"
+            app:layout_constraintEnd_toEndOf="@+id/editor_background_asset_selector"
+            app:layout_constraintStart_toStartOf="@+id/editor_background_asset_selector" />
+
+        <ImageView
+            android:id="@+id/editor_background_asset_selector"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/select_empty_material"
+            app:layout_constraintBottom_toBottomOf="@+id/editor_background_color_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editor_background_color_button"
+            app:layout_constraintTop_toTopOf="@+id/editor_background_color_button" />
+
+        <CheckBox
+            android:id="@+id/editor_show_in_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grid_layout_edit_show_in_game"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editor_background_color_button" />
+
+        <CheckBox
+            android:id="@+id/editor_show_in_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin"
+            android:text="@string/grid_layout_edit_show_in_menus"
+            app:layout_constraintTop_toBottomOf="@id/editor_show_in_game"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

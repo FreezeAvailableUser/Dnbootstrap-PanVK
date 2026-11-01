@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ControlButton">
+        <attr name="button_keycode" format="integer"/>
+        <attr name="button_keycode2" format="integer"/>
+        <attr name="sticky" format="boolean"/>
+        <attr name="cursorPassThru" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ControlGridLayout_LayoutParams">
+        <attr name="alignmentHorizontal" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="2"/>
+            <enum name="center" value="4"/>
+        </attr>
+        <attr name="alignmentVertical" format="enum">
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="3"/>
+            <enum name="center" value="4"/>
+        </attr>
+        <attr name="offsetHorizontal" format="integer"/>
+        <attr name="offsetVertical" format="integer"/>
+    </declare-styleable>
+
+    <attr name="controlButtonStyle" format="reference"/>
+    <attr name="joystickStyle" format="reference"/>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat">
+        <item name="controlButtonStyle">@style/ControlButton</item>
+        <item name="joystickStyle">@style/Joystick</item>
+    </style>
+
+    <style name="ControlButton">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">#3f000000</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">64dp</item>
+    </style>
+
+    <style name="Joystick">
+        <item name="android:background">#00000000</item>
+    </style>
+
+    <array name="horizontal_alignment_settings">
+        <item>@string/grid_layout_alignment_left</item>
+        <item>@string/grid_layout_alignment_right</item>
+        <item>@string/grid_layout_alignment_center</item>
+    </array>
+    <array name="vertical_alignment_settings">
+        <item>@string/grid_layout_alignment_top</item>
+        <item>@string/grid_layout_alignment_bottom</item>
+        <item>@string/grid_layout_alignment_center</item>
+    </array>
+
+    <dimen name="global_margin">6dp</dimen>
+    <dimen name="global_margin_half">3dp</dimen>
+</resources>

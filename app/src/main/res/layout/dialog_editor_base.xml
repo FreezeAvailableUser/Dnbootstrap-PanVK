@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/editor_center_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/editor_size_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/grid_layout_edit_size"/>
+
+    <TextView
+        android:id="@+id/editor_size_x_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editor_size_width"
+        app:layout_constraintBottom_toBottomOf="@id/editor_size_width"
+        android:text="×"/>
+    <EditText
+        android:id="@+id/editor_size_width"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/global_margin"
+        android:inputType="number"
+        android:digits="0123456789"
+        app:layout_constraintTop_toBottomOf="@id/editor_size_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editor_size_x_mark"/>
+
+    <EditText
+        android:id="@+id/editor_size_height"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_margin"
+        android:inputType="number"
+        android:digits="0123456789"
+        app:layout_constraintTop_toTopOf="@id/editor_size_width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/editor_size_x_mark"/>
+
+    <TextView
+        android:id="@+id/editor_horiz_pos_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_margin"
+        android:text="@string/grid_layout_edit_position_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/editor_size_width"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/editor_horiz_pos_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/global_margin_half"
+        android:inputType="number"
+        android:digits="-0123456789"
+        app:layout_constraintTop_toBottomOf="@id/editor_horiz_pos_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editor_center_guideline"/>
+
+    <Spinner
+        android:id="@+id/editor_horiz_pos_align"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/global_margin_half"
+        android:entries="@array/horizontal_alignment_settings"
+        app:layout_constraintTop_toTopOf="@id/editor_horiz_pos_text"
+        app:layout_constraintStart_toEndOf="@id/editor_center_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/editor_horiz_pos_text"/>
+
+    <TextView
+        android:id="@+id/editor_vert_pos_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_margin"
+        android:text="@string/grid_layout_edit_position_vertical"
+        app:layout_constraintTop_toBottomOf="@id/editor_horiz_pos_text"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/editor_vert_pos_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/global_margin_half"
+        android:inputType="number"
+        android:digits="-0123456789"
+        app:layout_constraintTop_toBottomOf="@id/editor_vert_pos_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editor_center_guideline"/>
+
+    <Spinner
+        android:id="@+id/editor_vert_pos_align"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/global_margin_half"
+        android:entries="@array/vertical_alignment_settings"
+        app:layout_constraintTop_toTopOf="@id/editor_vert_pos_text"
+        app:layout_constraintStart_toEndOf="@id/editor_center_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/editor_vert_pos_text"/>
+</merge>
